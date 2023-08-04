@@ -1,6 +1,43 @@
-let playButton = document.getElementById("game");
-playButton.addEventListener("click",game);
+// import 'animate.css';
+let playButton = document.getElementById("gameButton");
+                playButton.addEventListener("click",game);
+                
+let restartButton = document.getElementById("restartButton");
+                    restartButton.addEventListener("click",resetGame);
+let paperButton = document.getElementById("paperButton");
+                  paperButton.addEventListener("click", showImage);
+let nextRoundButton = document.getElementById("round");
+                      nextRoundButton.addEventListener("click",nextRound);
+              
+let playerPoints=0;
+let computerPoints=0;
+let txtPlayerPoints = document.getElementById("txtScorePLayer");
+let txtComputerPoints = document.getElementById("txtScoreComputer");
+let playerImage = document.getElementById("playerImage");
+let computerImage = document.getElementById("computerImage");
 
+// prueba(param2)
+// function prueba(param){
+//     let mensaje = document.getElementById("txtScorePLayer");
+//     param=param+1;
+//     let mensaje2 = `You: ${param}`
+//     mensaje.innerHTML= mensaje2;
+//     let imagen = document.getElementById("playerImage");
+//     let type = "PAPER";
+//     showImage(imagen,type);
+// }
+// prueba();
+function showImage(image, type) {
+    // type.toLowerCase();
+    restartButton.disabled = true;
+    image.src=`/assets/fightOptions/${type}.jpg`
+    image.classList.remove("showImage");
+    image.classList.add("showImage");
+    image.style.opacity = "1";
+}
+function nextRound(){
+    hideImages();
+}
 const options=["ROCK","PAPER","SCISSORS"];
 
 
@@ -33,24 +70,25 @@ function getplayerChoice (){
 }
 
 function game(){
-    let roundsPLayerWins = 0;
-    let roundsComputerWins = 0;
-    for(let i=0;i<5;i++){
-        alert("Round number: " + i);
-        let computerSelection = getComputerChoice(); 
-        let playerSelection = getplayerChoice();
-        let roundWinner = getRoundWinner(computerSelection,playerSelection)
-        if(roundWinner=="PLAYER"){
-            roundsPLayerWins++;
-            alert("Player win this round. Next Round...")
-        }else if(roundWinner=="COMPUTER"){
-            roundsComputerWins++;
-            alert("Computer win this round. Next Round...")
-        }else{
-            alert("Draw")
-        }
-    } 
-    getWinner(roundsPLayerWins,roundsComputerWins);
+
+    // let roundsPLayerWins = 0;
+    // let roundsComputerWins = 0;
+    // for(let i=0;i<5;i++){
+    //     alert("Round number: " + i);
+    //     let computerSelection = getComputerChoice(); 
+    //     let playerSelection = getplayerChoice();
+    //     let roundWinner = getRoundWinner(computerSelection,playerSelection)
+    //     if(roundWinner=="PLAYER"){
+    //         roundsPLayerWins++;
+    //         alert("Player win this round. Next Round...")
+    //     }else if(roundWinner=="COMPUTER"){
+    //         roundsComputerWins++;
+    //         alert("Computer win this round. Next Round...")
+    //     }else{
+    //         alert("Draw")
+    //     }
+    // } 
+    // getWinner(roundsPLayerWins,roundsComputerWins);
 }
 
 function getRoundWinner(computerSelection, playerSelection) {
@@ -93,4 +131,28 @@ function getWinner(roundsPLayerWins,roundsComputerWins){
         alert ("No winner, its a draw... " + " Computer Wins: " + roundsComputerWins + " Player Wins: " + roundsPLayerWins)
     }
     
+}
+
+
+function resetGame(){
+    resetScore();
+    hideImages();
+}
+
+const hideImages=()=>{
+    playerImage.src="";
+    playerImage.classList.remove("showImage");
+    playerImage.style.opacity = "0";
+
+    computerImage.src="";
+    computerImage.classList.remove("showImage");
+    computerImage.style.opacity = "0";
+}
+
+const resetScore=()=>{
+    playerPoints=0;
+    computerPoints=0;
+    
+    txtPlayerPoints.innerHTML=`You: ${playerPoints}`; 
+    txtComputerPoints.innerHTML=`Computer: ${computerPoints}`; 
 }

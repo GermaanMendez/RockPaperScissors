@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@font-face {
+    font-family: "neon"; /* El nombre que le asignarás a la fuente */
+    src: url("/assets/fonts/neon_pixel-7.ttf") format("truetype"); /* Ruta relativa a la carpeta donde se encuentran los archivos de la fuente */
+    /* Si tienes diferentes formatos de fuente, puedes enlazarlos aquí */
+  }
+  
+  /* Luego, puedes utilizar la fuente en cualquier parte de tu CSS */
+  body {
+    font-family: "neon", sans-serif; /* Usa el nombre que le asignaste a la fuente */
+  }
+  
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image:url('/assets/backGrounds/octag.jpg') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+.header{
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    color: #03e8f4f1;
+} 
+.headertitle{
+    margin-bottom: 20px;
+}
+
+.headerButons button{
+    padding: 10px;
+    margin-right: 20px;
+}
+.score{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    margin:110px 0 0 0 ;
+    font-size: 20px;
+    color: #03e8f4f1;
+}
+.scoresContainer{
+    /* background-color: blue; */
+    display: flex;
+    width: 20%;
+    height: 30px;
+    justify-content: space-between;
+}
+.scoresContainer h4{
+    margin-left: 20px;
+    margin-right: 10px;
+}
+.optionsTable {
+    /* background-color: gold; */
+    margin-top: 210px; 
+    color: red;
+    width: 50%;
+    height: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
+  }
+  
+img{
+    width: 100px;
+    height: 100px;
+}
+.playerSelections{
+    margin-top: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+    margin-left: 30px;
+}
+.headerButons a{
+    /* width: 30px; */
+    padding: 10px 10px;
+    color: #03e9f4;
+    margin-right: 20px;
+}
+ a{
+    width: 100px;
+    text-align: center;
+    position: relative;
+    padding: 25px 20px;
+    margin: 40px 0;
+    color: #03e9f4;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 1.1s;
+    margin-right: 30px;
+    border: 1px solid #03e9f4;
+}
+a:hover{
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+     -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+     cursor: pointer;
+}
+a:nth-child(1){
+    filter: hue-rotate(270deg);
+}
+a:nth-child(2){
+    filter: hue-rotate(110deg);
+}
+a span{
+    position: absolute;
+    display: block;
+}
+.mostrarImagen {
+    transition: 2.1s;
+    display: block; 
+  }
+  .ocultarImagen{
+    display: none;
+  }
+   .showImage {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    transition: opacity 2s; 
+  } 
+  

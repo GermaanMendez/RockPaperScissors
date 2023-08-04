@@ -3,11 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>Document</title>
 </head>
-<body>
-    <button id="game">PLAY</button>
+<body class="animate__animated animate__zoomInLeft">
+    <div class="header">
+        <div class="headertitle">
+            <h1>Rock, Paper and Scissors</h1>
+        </div>
+        <div class="headerButons">
+            <a id="gameButton">Play</a>
+            <a id="restartButton">Restart</a>
+        </div>
+    </div>
+    
+    <div class="score">
+        <div> <h3>Score</h3></div>
+        <div class="scoresContainer">
+                <h4 id="txtScorePLayer">You: 0 </h4>
+                <h4 id="txtScoreComputer">Computer: 0 </h4>
+        </div>
+    </div>
+     <div class="optionsTable">
+        <div class="playerOptionImg">
+            <img id="playerImage"  src="" alt="" style="opacity: 0;">
+        </div>
+        <div class="computerOptionImg">
+            <img id="computerImage"  src="" alt="" style="opacity: 0;">
+        </div>
+     </div>
+     <a id="round">ROUND</a>
+    <div class="playerSelections">
+        <a href="#">
+            Rock
+        </a>
+        <a href="#" id="paperButton">
+           
+            Paper
+        </a>
+        <a href="#">
+            Scissors
+        </a>
+    </div>
+      
     <script src="/game.js"></script>
 </body>
 </html>
