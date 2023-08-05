@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 @font-face {
     font-family: "neon"; /* El nombre que le asignarás a la fuente */
-    src: url("/assets/fonts/neon_pixel-7.ttf") format("truetype"); /* Ruta relativa a la carpeta donde se encuentran los archivos de la fuente */
+    src: url("./assets/fonts/neon_pixel-7.ttf") format("truetype"); /* Ruta relativa a la carpeta donde se encuentran los archivos de la fuente */
     /* Si tienes diferentes formatos de fuente, puedes enlazarlos aquí */
   }
   
@@ -15,7 +15,7 @@
     padding: 0;
 }
 body{
-    background-image:url('/assets/backGrounds/octag.jpg') ;
+    background-image:url('./assets/backGrounds/octag.jpg') ;
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
