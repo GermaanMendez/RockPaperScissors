@@ -44,7 +44,7 @@ function game(playerChoice){
 
 function showImage(image, type) {
     type.toLowerCase();
-    image.src=`./assets/${type}.jpg`
+    image.src=`./${type}.jpg`
     image.classList.remove("showImage");
     image.classList.add("showImage");
     image.style.opacity = "1";
