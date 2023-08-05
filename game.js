@@ -44,7 +44,7 @@ function game(playerChoice){
 
 function showImage(image, type) {
     type.toLowerCase();
-    image.src=`./${type}.jpg`
+    image.src=`./assets/${type}.jpeg`
     image.classList.remove("showImage");
     image.classList.add("showImage");
     image.style.opacity = "1";
@@ -70,7 +70,7 @@ function showRoundWinner(playerChoice,computerChoice){
     addPoints(roundMessage);
     openModal(roundMessage);
 }
-function getRoundWinner(computerSelection, playerSelection) {
+function getRoundWinner(playerSelection,computerSelection) {
     switch (playerSelection) {
       case computerSelection:
         return "DRAW"
