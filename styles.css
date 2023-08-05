@@ -137,4 +137,59 @@ a span{
     transform: translate(-50%, -50%);
     transition: opacity 2s; 
   } 
+
   
+  .modal-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(79,79,79, 0.7);
+    z-index: 1;
+    visibility: hidden;
+}
+
+.modal-content {
+    width: 400px;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.modal-content h2 {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.modalNextRound {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    background-color: rgb(17,195,62);
+    cursor: pointer;
+}
+
+.modalNextRound p {
+    color: #fff;
+    font-weight: 400;
+}
+
+
+
+.modalNextRound:hover {
+    /* background-color: hsl(135, 84%, 40%);
+     */background-color: red;
+}

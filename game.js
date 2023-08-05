@@ -1,45 +1,54 @@
-// import 'animate.css';
-let playButton = document.getElementById("gameButton");
-                playButton.addEventListener("click",game);
-                
-let restartButton = document.getElementById("restartButton");
+//Buttons 
+const restartButton = document.getElementById("restartButton");
                     restartButton.addEventListener("click",resetGame);
-let paperButton = document.getElementById("paperButton");
-                  paperButton.addEventListener("click", showImage);
-let nextRoundButton = document.getElementById("round");
+const paperButton = document.getElementById("paperButton");
+                    paperButton.addEventListener("click", function() {
+                        game("PAPER");
+                    });
+const rockButton = document.getElementById("rockButton");
+                    rockButton.addEventListener("click", function() {
+                        game("ROCK");
+                    });
+const scissorsButton = document.getElementById("scissorsButton");
+                        scissorsButton.addEventListener("click", function() {
+                        game("SCISSORS");
+                    });
+const nextRoundButton = document.getElementById("nextRoundButton");
                       nextRoundButton.addEventListener("click",nextRound);
-              
+
+//Possible options
+const options=["ROCK","PAPER","SCISSORS"];       
+
+//Players points, images of selected choice and players points counter              
 let playerPoints=0;
 let computerPoints=0;
-let txtPlayerPoints = document.getElementById("txtScorePLayer");
-let txtComputerPoints = document.getElementById("txtScoreComputer");
-let playerImage = document.getElementById("playerImage");
-let computerImage = document.getElementById("computerImage");
+const txtPlayerPoints = document.getElementById("txtScorePLayer");
+const txtComputerPoints = document.getElementById("txtScoreComputer");
+const playerImage = document.getElementById("playerImage");
+const computerImage = document.getElementById("computerImage");
 
-// prueba(param2)
-// function prueba(param){
-//     let mensaje = document.getElementById("txtScorePLayer");
-//     param=param+1;
-//     let mensaje2 = `You: ${param}`
-//     mensaje.innerHTML= mensaje2;
-//     let imagen = document.getElementById("playerImage");
-//     let type = "PAPER";
-//     showImage(imagen,type);
-// }
-// prueba();
+//MODAL
+const modal = document.getElementById('modal');
+
+
+
+function game(playerChoice){
+   let computerChoice = getComputerChoice();
+   showImage(computerImage,computerChoice);
+   showImage(playerImage,playerChoice);
+ 
+   setTimeout(() => {
+    showRoundWinner(playerChoice, computerChoice);
+  }, 1800);
+}
+
 function showImage(image, type) {
-    // type.toLowerCase();
-    restartButton.disabled = true;
+    type.toLowerCase();
     image.src=`/assets/fightOptions/${type}.jpg`
     image.classList.remove("showImage");
     image.classList.add("showImage");
     image.style.opacity = "1";
 }
-function nextRound(){
-    hideImages();
-}
-const options=["ROCK","PAPER","SCISSORS"];
-
 
 function getComputerChoice(){
     let num = Math.floor(Math.random() * 10);
@@ -54,43 +63,13 @@ function getComputerChoice(){
     return computerSelection;
 }
 
-function getplayerChoice (){
-    let playerInput = prompt("Your selection").toUpperCase();
-    let playerSelection=options.find((element)=>element==playerInput);
-    if(playerSelection!=null && playerSelection!=undefined){
-        return playerSelection;
-    }else{
-       while(playerSelection==null || playerSelection==undefined){
-        alert("Invalid option. You can use only: Paper , Rock , Scissors")
-        playerInput = prompt("Your selection").toUpperCase();
-        playerSelection=options.find((element)=>element==playerInput);
-       }
-       return playerSelection;
-    }
+
+
+function showRoundWinner(playerChoice,computerChoice){
+    let roundMessage = getRoundWinner(playerChoice,computerChoice);
+    addPoints(roundMessage);
+    openModal(roundMessage);
 }
-
-function game(){
-
-    // let roundsPLayerWins = 0;
-    // let roundsComputerWins = 0;
-    // for(let i=0;i<5;i++){
-    //     alert("Round number: " + i);
-    //     let computerSelection = getComputerChoice(); 
-    //     let playerSelection = getplayerChoice();
-    //     let roundWinner = getRoundWinner(computerSelection,playerSelection)
-    //     if(roundWinner=="PLAYER"){
-    //         roundsPLayerWins++;
-    //         alert("Player win this round. Next Round...")
-    //     }else if(roundWinner=="COMPUTER"){
-    //         roundsComputerWins++;
-    //         alert("Computer win this round. Next Round...")
-    //     }else{
-    //         alert("Draw")
-    //     }
-    // } 
-    // getWinner(roundsPLayerWins,roundsComputerWins);
-}
-
 function getRoundWinner(computerSelection, playerSelection) {
     switch (playerSelection) {
       case computerSelection:
@@ -122,18 +101,29 @@ function getRoundWinner(computerSelection, playerSelection) {
     }
   }
 
-function getWinner(roundsPLayerWins,roundsComputerWins){
-    if(roundsPLayerWins>roundsComputerWins){
-        alert ("Player Won the game!!! " + " Player Wins: " + roundsPLayerWins + " Computer Wins: " + roundsComputerWins)
-    }else if(roundsPLayerWins<roundsComputerWins){
-        alert ("Computer Won the game!!! " + " Computer Wins: " + roundsComputerWins + " Player Wins: " + roundsPLayerWins)
-    }else{
-        alert ("No winner, its a draw... " + " Computer Wins: " + roundsComputerWins + " Player Wins: " + roundsPLayerWins)
+function addPoints(winner){
+    if(winner==="PLAYER"){
+        playerPoints++;
+        txtPlayerPoints.innerHTML=`You: ${playerPoints}`; 
+    }else if(winner=="COMPUTER"){
+        computerPoints++;
+        txtComputerPoints.innerHTML=`Computer: ${computerPoints}`; 
     }
-    
+}
+
+function openModal(message){
+    let roundWinnerH2=document.getElementById('winnerRoundMessage');
+    roundWinnerH2.innerHTML=`The Winner of this Round is...${message}`
+    modal.style.visibility = "visible";
+}
+
+function nextRound(){
+    hideImages();
+    modal.style.visibility = "hidden";
 }
 
 
+//-------------RESET GAME--------------------
 function resetGame(){
     resetScore();
     hideImages();
