@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 @font-face {
-    font-family: "neon"; /* El nombre que le asignarás a la fuente */
-    src: url("./assets/fonts/neon_pixel-7.ttf") format("truetype"); /* Ruta relativa a la carpeta donde se encuentran los archivos de la fuente */
-    /* Si tienes diferentes formatos de fuente, puedes enlazarlos aquí */
+    font-family: "neon"; 
+    src: url("./assets/fonts/neon_pixel-7.ttf") format("truetype"); 
+
   }
-  
-  /* Luego, puedes utilizar la fuente en cualquier parte de tu CSS */
+
   body {
-    font-family: "neon", sans-serif; /* Usa el nombre que le asignaste a la fuente */
+    font-family: "neon", sans-serif; 
   }
   
 *{
@@ -19,6 +18,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    background-position: center;
 }
 .header{
     font-size: 30px;
@@ -187,9 +187,97 @@ a span{
     font-weight: 400;
 }
 
-
-
 .modalNextRound:hover {
-    /* background-color: hsl(135, 84%, 40%);
-     */background-color: red;
+     background-color: red;
+}
+
+
+
+/* RESPONSIVE STYLES */
+@media (min-width: 280px) and (max-width: 450px) {
+    body {
+      font-size: 15px;
+    }
+    h1{
+        font-size: 30px;
+    }
+    #restartButton{
+        font-size: 20px;
+    }
+    .score{
+        justify-content: center;
+        font-size: 20px;
+    }
+    .scoresContainer{
+        width: 80%;
+    }
+    .scoresContainer h4{
+        margin-top: 20px;
+        margin-left: 40px;
+        margin-right: 10px;
+    }
+    .optionsTable{
+        width: 100%;
+    }
+  }
+
+@media (min-width: 700px) and (max-width: 900px) {
+    body {
+      font-size: 20px;
+    }
+    .score{
+        justify-content: center;
+        font-size: 25px;
+    }
+    .scoresContainer{
+        width: 60%;
+    }
+    .scoresContainer h4{
+        margin-top: 20px;
+        margin-left: 40px;
+        margin-right: 10px;
+    }
+    .optionsTable{
+        width: 100%;
+    }
+    .playerSelections{
+        margin-top: 400px;
+    }
+  }
+  
+
+  @media (min-width: 901px) and (max-width: 1000px) {
+    body {
+      font-size: 30px;
+    }
+    .headerButons{
+        margin-top: 55px;
+        font-size: 50px;
+    }
+    .score{
+        justify-content: center;
+        font-size: 35px;
+    }
+    .scoresContainer{
+        width: 60%;
+    }
+    .scoresContainer h4{
+        margin-top: 20px;
+        margin-left: 40px;
+        margin-right: 10px;
+    }
+    .optionsTable{
+        width: 100%;
+    }
+    .optionsTable img{
+        width: 150px;
+        height: 150px;
+    }
+    .playerSelections{
+        margin-top: 550px;
+    }
+    .playerSelections a{
+        width: 150px;
+        font-size: 30px;
+    }
 }
